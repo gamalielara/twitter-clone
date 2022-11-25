@@ -6,6 +6,7 @@ interface IText {
   color?: Color;
   margin?: number[];
   bold?: boolean;
+  inlineBlock? : boolean;
 }
 
 export const RegularText = styled.p<IText>`
@@ -16,8 +17,13 @@ export const RegularText = styled.p<IText>`
     css`
       font-weight: bold;
     `};
-  color: ${(props) => props.color || "white"};
+  color: ${(props) => props.color || "black"};
+  display: ${props => props.inlineBlock ? "inline-block" : "block"};
 `;
+
+export const SomewhatRegularText = styled(RegularText)`
+  font-size: 14px;
+`
 
 export const LargeText = styled(RegularText)`
   font-size: 1.25rem;
@@ -26,3 +32,7 @@ export const LargeText = styled(RegularText)`
 export const ExtraLargeText = styled(RegularText)`
   font-size: 1.5rem;
 `;
+
+export const SmallText = styled(RegularText)`
+  font-size: .75rem;
+`

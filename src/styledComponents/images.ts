@@ -12,9 +12,9 @@ export const Image = styled.img<IImage>`
   border-radius: ${(props) => props.borderRadius && "100%"};
 `;
 
-export const ProfileImage = styled.img`
-  width: 50px;
-  height: 50px;
+export const ProfileImage = styled(Image)`
+  width: ${(props) => (props.width ? `${props.width}px` : "50px")};
+  height: ${(props) => (props.height ? `${props.height}px` : "50px")};
   border-radius: 100%;
 `;
 

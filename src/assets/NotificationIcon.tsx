@@ -1,13 +1,10 @@
 import React from "react";
-import { Color } from "../constants/colors";
 import { SVGWrapper } from "../styledComponents/containers";
+import {ISVG} from "../interface/interface";
 
-interface ISGV {
-  color: Color;
-  filled?: boolean;
-}
 
-const NotificationIcon: React.FC<ISGV> = ({ color, filled }) => {
+
+const NotificationIcon: React.FC<ISVG> = ({ color, filled }) => {
   return (
     <SVGWrapper color={color}>
       {filled ? (
