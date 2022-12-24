@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import "./App.css";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import "./style.scss"
 
 const GlobalStyle = createGlobalStyle`

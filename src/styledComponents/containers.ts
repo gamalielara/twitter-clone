@@ -118,6 +118,9 @@ export const DashboardMainContainer = styled.div`
   min-height: 100vh;
   width: 100%;
   background-color: white;
+  box-shadow: 5px 5px 10px 5px rgb(0 0 0 / 70%);
+  -webkit-box-shadow: 5px 5px 10px 5px rgb(0 0 0 / 70%);
+  -moz-box-shadow: 5px 5px 10px 5px rgb(0 0 0 / 70%);
 `
 
 export const Circle = styled(Box)`
