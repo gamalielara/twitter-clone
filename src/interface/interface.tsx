@@ -10,6 +10,7 @@ export interface TweetInterface{
     username: string;
     display_name: string;
     timestamp: number|string|Date;
+    tweet_body: string;
     is_verified: boolean;
     replies_count: number;
     retweet_count: number;
@@ -18,4 +19,5 @@ export interface TweetInterface{
     is_retweeted: boolean;
     profile_picture?: string;
     image_attached?:string[];
+
 }

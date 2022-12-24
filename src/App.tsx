@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import "./App.css";
 import Dashboard from "./pages/Dashboard";
-import { MainContainer } from "./styledComponents/containers";
+import "./style.scss"
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -17,9 +17,9 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <MainContainer>
+      <main className="main-container">
         <Dashboard />
-      </MainContainer>
+      </main>
     </>
   );
 }

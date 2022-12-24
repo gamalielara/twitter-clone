@@ -9,7 +9,7 @@ import {LargeText, RegularText} from "../styledComponents/texts";
 const DashboardHeader = () => {
   return (
     <Header
-      position={Position.FIXED}
+      position={Position.STICKY}
       height="150px"
       width="100%"
       bgColor={Color.DARK_GRAY}

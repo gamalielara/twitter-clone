@@ -1,0 +1,18 @@
+$BLUE_PRIMARY : #1DA1F2;
+
+.create-tweet-button{
+  width: calc(var(--unit-width) * 0.15);
+  height: calc(var(--unit-width) * 0.15);
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 2%;
+  right: 5%;
+  background-color: $BLUE_PRIMARY;
+  border-radius: 100%;
+  border: none;
+  padding: 1.25rem;
+
+  @supports (not (aspect-ratio: 1)) {
+    padding-bottom: 100%;
+  }
+}
