@@ -1,4 +1,4 @@
-.dashboard{
+.dashboard {
   position: absolute;
   top: 0;
   left: 0;
@@ -9,7 +9,7 @@
   margin: 150px 0px 0px;
 }
 
-.dashboard-main-container{
+.dashboard-main-container {
   box-sizing: border-box;
   background-color: transparent;
   padding: 50px 0px 0px;
@@ -27,17 +27,17 @@
   -moz-box-shadow: 5px 5px 10px 5px rgb(0 0 0 / 70%);
 }
 
-.circle-home{
+.circle-home {
   width: 60px;
   height: 60px;
   border-radius: 100%;
   box-sizing: border-box;
-  background-color: #1DA1F2;
+  background-color: #1da1f2;
   padding: 15px;
   position: absolute;
   top: -20px;
   left: 50%;
-  -webkit-transform: translate(-50%,0);
-  -ms-transform: translate(-50%,0);
-  transform: translate(-50%,0);
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
 }

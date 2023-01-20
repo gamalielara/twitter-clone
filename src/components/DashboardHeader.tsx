@@ -1,10 +1,16 @@
 import DirectMessageIcon from "../assets/DirectMessageIcon";
 import NotificationIcon from "../assets/NotificationIcon";
-import {Color} from "../constants/colors";
-import {Box, FlexBox, FluidBox, GradientLinearHeader, Header} from "../styledComponents/containers";
-import {ProfileImage} from "../styledComponents/images";
-import {Position} from "../styledComponents/positions";
-import {LargeText, RegularText} from "../styledComponents/texts";
+import { Color } from "../constants/colors";
+import {
+  Box,
+  FlexBox,
+  FluidBox,
+  GradientLinearHeader,
+  Header,
+} from "../styledComponents/containers";
+import { ProfileImage } from "../styledComponents/images";
+import { Position } from "../styledComponents/positions";
+import { LargeText, RegularText } from "../styledComponents/texts";
 
 const DashboardHeader = () => {
   return (
@@ -30,9 +36,11 @@ const DashboardHeader = () => {
         height="80%"
       >
         <FlexBox>
-          <ProfileImage src="https://pbs.twimg.com/profile_images/1564101520043479043/eJpWqka2_400x400.jpg" />
+          <ProfileImage src="https://upload.wikimedia.org/wikipedia/id/4/47/Taylor_Swift_-_Red_%28Taylor%27s_Version%29.png" />
           <FluidBox className="user-detail" margin={[0, 10]} height="0">
-            <LargeText bold color={Color.WHITE}>Taylor Swift</LargeText>
+            <LargeText bold color={Color.WHITE}>
+              Taylor Swift
+            </LargeText>
             <RegularText color={Color.WHITE}>@taylorswift13</RegularText>
           </FluidBox>
         </FlexBox>

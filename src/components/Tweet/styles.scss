@@ -1,12 +1,13 @@
-.tweet-container{
+.tweet-container {
   box-sizing: border-box;
   background-color: transparent;
   padding: 0px 0px 10px;
   margin: 10px 5px;
-  border-bottom: 1px solid #AAB8C2;
+  border-bottom: 1px solid #aab8c2;
+  overflow-x: hidden;
 }
 
-.tweet{
+.tweet {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -18,24 +19,21 @@
   box-sizing: border-box;
   background-color: transparent;
   padding: 0px 10px;
+  width: 100%;
 }
 
-.profile-image{
+.profile-image {
   width: 50px;
   height: 50px;
   aspect-ratio: 1;
   border-radius: 100%;
-  background-color: #1DA1F2;
+  background-color: #1da1f2;
 }
 
-.tweet-body{
+.tweet-body {
+  min-width: 0;
 
-  span:first-child{
-    font-weight: 700;
-    margin-right: 5px;
-  }
-
-  p{
+  p {
     margin-top: 5px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -44,7 +42,31 @@
   }
 }
 
-.action-box{
+.profile-tweeter {
+  display: flex;
+  align-items: center;
+  text-overflow: ellipsis;
+
+  .profile-tweeter-display-name {
+    inline-size: max-content;
+    white-space: nowrap;
+    font-weight: 700;
+  }
+
+  .profile-tweeter-username {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-left: 4px;
+  }
+
+  svg {
+    height: 1em;
+    min-width: 1em;
+    fill: var(--blue-primary);
+  }
+}
+
+.action-box {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -57,7 +79,7 @@
   background-color: transparent;
   margin: 10px 0px 0px;
 
-  button{
+  button {
     border: none;
     width: 20px;
     height: 20px;
@@ -66,11 +88,11 @@
     padding: 2px;
   }
 
-  div{
+  div {
     display: flex;
     align-items: center;
 
-    p{
+    p {
       margin-top: 0;
       margin-left: 2px;
     }
