@@ -7,8 +7,9 @@ $EXTRA_EXTRA_LIGHT_GRAY: "#F5F8FA";
 $WHITE: "white";
 
 :root {
-  --unit-width: 40vw;
+  --unit-width: 600px;
   --blue-primary: #1da1f2;
+  --light-gray: #aab8c2;
 
   @media screen and (max-width: 500px) {
     --unit-width: 100vw;

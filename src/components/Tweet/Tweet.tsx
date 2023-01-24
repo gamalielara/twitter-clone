@@ -8,6 +8,7 @@ import ShareIcon from "../../assets/ShareIcon";
 import { TweetInterface } from "../../interface/interface";
 import "./styles.scss";
 import { VerifiedIcon } from "../../assets/VerifiedIcon";
+import { convertIntToString } from "../../helpers/convertIntToString";
 
 interface TweetProps {
   tweet: TweetInterface;
@@ -16,7 +17,7 @@ interface TweetProps {
 const Tweet: React.FC<TweetProps> = ({ tweet }) => {
   const { tweet_body, likes_count, retweet_count, replies_count, user } = tweet;
 
-  const { username, display_name, profile_picture, is_verified } = user!;
+  const { username, display_name, profile_picture, is_verified } = user;
 
   return (
     <div className="tweet-container">
@@ -41,21 +42,21 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
               <button>
                 <ReplyIcon color={Color.BLUE_PRIMARY} />
               </button>
-              <SmallText>{replies_count}</SmallText>
+              <SmallText>{convertIntToString(replies_count)}</SmallText>
             </div>
 
             <div>
               <button>
                 <RetweetIcon color={Color.BLUE_PRIMARY} />
               </button>
-              <SmallText>{retweet_count}</SmallText>
+              <SmallText>{convertIntToString(retweet_count)}</SmallText>
             </div>
 
             <div>
               <button>
                 <LikeIcon color={Color.BLUE_PRIMARY} />
               </button>
-              <SmallText>{likes_count}</SmallText>
+              <SmallText>{convertIntToString(likes_count)}</SmallText>
             </div>
 
             <div>

@@ -1,7 +1,9 @@
+import { Provider } from "react-redux";
 import { createGlobalStyle } from "styled-components";
 import "./App.css";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import "./style.scss"
+import "./style.scss";
+import { store } from "./redux/store";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -15,12 +17,12 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <>
+    <Provider store={store}>
       <GlobalStyle />
       <main className="main-container">
         <Dashboard />
       </main>
-    </>
+    </Provider>
   );
 }
 

@@ -1,39 +1,45 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import DashboardHeader from "../../components/DashboardHeader";
 import HomeIcon from "../../assets/HomeIcon";
 import { Color } from "../../constants/colors";
 import Tweet from "../../components/Tweet/Tweet";
 import "./styles.scss";
 import FloatingCreateNewTweetButton from "../../components/FloatingCreateNewTweetButton/FloatingCreateNewTweetButton";
-import { TweetInterface } from "../../interface/interface";
+import { AppInterface } from "../../interface/interface";
+import LoadingTwitterIcon from "../../assets/LoadingTwitterIcon";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllTweets } from "../../redux/tweets/tweetsSlice";
+import { store } from "../../redux/store";
 
 const Dashboard: React.FC = () => {
-  const [tweets, setTweets] = useState<TweetInterface[] | null>(null);
+  const { tweets, isLoading } = useSelector(
+    (state: AppInterface) => state.tweetsState
+  );
+  const dispatch = useDispatch<typeof store.dispatch>();
 
   useEffect(() => {
-    fetch("http://localhost:1919/tweets?_page=1")
-      .then((res) => res.json())
-      .then((data) => setTweets(data));
+    dispatch(fetchAllTweets());
   }, []);
 
-  return (
-    tweets && (
-      <>
-        <DashboardHeader />
-        <div className="dashboard">
-          <div className="dashboard-main-container">
-            <div className="circle-home">
-              <HomeIcon color={Color.LIGHT_GRAY} filled />
-            </div>
+  console.log(tweets);
 
-            {tweets.map((tweet, i) => (
-              <Tweet key={i} tweet={tweet} />
-            ))}
+  return (
+    <>
+      {isLoading && <LoadingTwitterIcon />}
+      <DashboardHeader />
+      <div className="dashboard">
+        <div className="dashboard-main-container">
+          <div className="circle-home">
+            <HomeIcon color={Color.LIGHT_GRAY} filled />
           </div>
+
+          {tweets.map((tweet, i) => (
+            <Tweet key={tweet._id} tweet={tweet} />
+          ))}
         </div>
-        <FloatingCreateNewTweetButton />
-      </>
-    )
+      </div>
+      <FloatingCreateNewTweetButton />
+    </>
   );
 };
 

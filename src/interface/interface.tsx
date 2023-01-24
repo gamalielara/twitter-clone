@@ -5,6 +5,15 @@ export interface ISVG {
   filled?: boolean;
 }
 
+export interface TweetsStateInterface {
+  isLoading: boolean;
+  tweets: TweetInterface[];
+}
+
+export interface AppInterface {
+  tweetsState: TweetsStateInterface;
+}
+
 export interface TweetInterface {
   _id: string;
   tweet_body: string;
@@ -14,7 +23,7 @@ export interface TweetInterface {
   is_liked: boolean;
   is_retweeted: boolean;
   image_attached: string[];
-  user: UserInterface | null;
+  user: UserInterface;
 }
 
 export interface UserInterface {
