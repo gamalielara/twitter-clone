@@ -2,7 +2,7 @@ import { Provider } from "react-redux";
 import { createGlobalStyle } from "styled-components";
 import "./App.css";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import "./style.scss";
+import "./sass/main.scss";
 import { store } from "./redux/store";
 
 const GlobalStyle = createGlobalStyle`

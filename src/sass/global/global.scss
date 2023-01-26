@@ -1,11 +1,3 @@
-$BLUE_PRIMARY: "#1DA1F2";
-$BLACK: "#14171A";
-$DARK_GRAY: "#657786";
-$LIGHT_GRAY: "#AAB8C2";
-$EXTRA_LIGHT_GRAY: "#E1E8ED";
-$EXTRA_EXTRA_LIGHT_GRAY: "#F5F8FA";
-$WHITE: "white";
-
 :root {
   --unit-width: 600px;
   --blue-primary: #1da1f2;
@@ -18,7 +10,7 @@ $WHITE: "white";
 
 main.main-container {
   width: 100%;
-  max-width: var(--unit-width);
+  max-width: 500px;
   margin: 0 auto;
   overflow: scroll;
   position: relative;
