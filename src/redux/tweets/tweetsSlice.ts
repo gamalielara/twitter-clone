@@ -3,10 +3,10 @@ import { TweetsStateInterface } from "../../interface/interface";
 
 export const fetchAllTweets = createAsyncThunk(
   "tweets/fetchAllTweets",
-  async () => {
-    const tweets = fetch(`http://10.20.145.52:1919/tweets?_page=5`).then(
-      (data) => data.json()
-    );
+  async (page: number = 1, thunkAPI) => {
+    const tweets = fetch(
+      `${process.env.REACT_APP_BASE_URL}/tweets?_page=${page}`
+    ).then((data) => data.json());
     return tweets;
   }
 );
@@ -14,6 +14,7 @@ export const fetchAllTweets = createAsyncThunk(
 const initialState: TweetsStateInterface = {
   isLoading: false,
   tweets: [],
+  isError: false,
 };
 
 const tweetsSlice = createSlice({
@@ -30,6 +31,10 @@ const tweetsSlice = createSlice({
       .addCase(fetchAllTweets.fulfilled, (state, action) => {
         state.isLoading = false;
         state.tweets = [...state.tweets, ...action.payload];
+      })
+      .addCase(fetchAllTweets.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
       });
   },
 });

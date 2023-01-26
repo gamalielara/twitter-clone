@@ -18,10 +18,8 @@ const Dashboard: React.FC = () => {
   const dispatch = useDispatch<typeof store.dispatch>();
 
   useEffect(() => {
-    dispatch(fetchAllTweets());
+    dispatch(fetchAllTweets(1));
   }, []);
-
-  console.log(tweets);
 
   return (
     <>

@@ -1,8 +1,10 @@
 $BLUE_PRIMARY: #1da1f2;
 
 .create-tweet-button {
-  width: 75px;
-  height: 75px;
+  max-width: 75px;
+  max-height: 75px;
+  width: 15vmin;
+  height: 15vmin;
   box-sizing: border-box;
   position: fixed;
   bottom: 2%;

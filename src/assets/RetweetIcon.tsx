@@ -1,19 +1,32 @@
 import React from "react";
-import {ISVG} from "../interface/interface";
-import {SVGWrapper} from "../styledComponents/containers";
+import { ISVG } from "../interface/interface";
+import { SVGWrapper } from "../styledComponents/containers";
 
-const RetweetIcon: React.FC<ISVG> = ({color}) => {
-    return (
-        <SVGWrapper color={color}>
-            <svg viewBox="0 0 24 24" aria-hidden="true"
-                 className="r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi">
-                <g>
-                    <path
-                        d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path>
-                </g>
-            </svg>
-        </SVGWrapper>
-    )
-}
+const RetweetIcon: React.FC<ISVG> = ({ color }) => {
+  return (
+    <SVGWrapper color={color}>
+      <svg
+        width="21px"
+        height="21px"
+        viewBox="0 0 21 21"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          fill="none"
+          fillRule="evenodd"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          transform="translate(1 4)"
+        >
+          <path d="m12.5 9.5 3 3 3-3" />
+          <path d="m8.5.5h3c2.209139 0 4 1.790861 4 4v8" />
+          <path d="m6.5 3.5-3-3-3 3" />
+          <path d="m10.5 12.5h-3c-2.209139 0-4-1.790861-4-4v-8" />
+        </g>
+      </svg>
+    </SVGWrapper>
+  );
+};
 
-export default RetweetIcon
+export default RetweetIcon;

@@ -7,6 +7,7 @@ export interface ISVG {
 
 export interface TweetsStateInterface {
   isLoading: boolean;
+  isError: boolean;
   tweets: TweetInterface[];
 }
 

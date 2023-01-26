@@ -6,16 +6,24 @@ import RetweetIcon from "../../assets/RetweetIcon";
 import LikeIcon from "../../assets/LikeIcon";
 import ShareIcon from "../../assets/ShareIcon";
 import { TweetInterface } from "../../interface/interface";
-import "./styles.scss";
 import { VerifiedIcon } from "../../assets/VerifiedIcon";
 import { convertIntToString } from "../../helpers/convertIntToString";
+import ImagePreview from "../ImagePreview/ImagePreview";
+import "./styles.scss";
 
 interface TweetProps {
   tweet: TweetInterface;
 }
 
 const Tweet: React.FC<TweetProps> = ({ tweet }) => {
-  const { tweet_body, likes_count, retweet_count, replies_count, user } = tweet;
+  const {
+    tweet_body,
+    likes_count,
+    retweet_count,
+    replies_count,
+    user,
+    image_attached,
+  } = tweet;
 
   const { username, display_name, profile_picture, is_verified } = user;
 
@@ -37,6 +45,7 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
             <span className="profile-tweeter-username">@{username}</span>
           </div>
           <p>{tweet_body}</p>
+          <ImagePreview images={image_attached} />
           <div className="action-box">
             <div>
               <button>
