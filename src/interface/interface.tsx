@@ -3,6 +3,7 @@ import { Color } from "../constants/colors";
 export interface ISVG {
   color: Color;
   filled?: boolean;
+  isRetweeted?: boolean;
 }
 
 export interface TweetsStateInterface {

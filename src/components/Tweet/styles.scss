@@ -93,7 +93,11 @@
       display: inline-block;
       width: 100%;
       height: 100%;
-      fill: $BLUE_PRIMARY;
+      filter: $FILTER_BLUE_PRIMARY;
+
+      &.retweeted {
+        filter: $FILTER_GREEN !important;
+      }
     }
   }
 

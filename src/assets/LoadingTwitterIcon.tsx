@@ -1,25 +1,8 @@
-import { useEffect, useRef } from "react";
 import "./loading-twitter-icon.scss";
 
 const LoadingTwitterIcon: React.FC = () => {
-  const loadingIconRef = useRef(null);
-
-  useEffect(() => {
-    if (loadingIconRef.current) {
-      // setTimeout(
-      //   () =>
-      //     ((loadingIconRef.current as any).className = "loading-wrapper show"),
-      //   1000
-      // );
-      // setTimeout(
-      //   () =>
-      //     ((loadingIconRef.current as any).className = "loading-wrapper hide"),
-      //   2000
-      // );
-    }
-  });
   return (
-    <div className="loading-wrapper" ref={loadingIconRef}>
+    <div className="loading-wrapper">
       <div className="loading-icon-animation">
         <svg
           viewBox="0 0 24 24"

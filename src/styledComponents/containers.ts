@@ -107,19 +107,6 @@ export const FlexBox = styled(Box)<IFlexBox>`
     `}
 `;
 
-export const SVGWrapper = styled.div<ISGVWrapper>`
-  filter: ${(props) => {
-    switch (props.color) {
-      case Color.BLACK:
-        return "invert(0%) sepia(0%) saturate(6439%) hue-rotate(100deg) brightness(91%) contrast(104%);";
-      case Color.BLUE_PRIMARY:
-        return "invert(46%) sepia(91%) saturate(1948%) hue-rotate(180deg) brightness(105%) contrast(90%);";
-      default:
-        return "invert(100%) sepia(0%) saturate(5%) hue-rotate(164deg) brightness(103%) contrast(103%);";
-    }
-  }};
-`;
-
 export const DashboardMainContainer = styled.div`
   ${divStyles};
   border-top-left-radius: 20px;

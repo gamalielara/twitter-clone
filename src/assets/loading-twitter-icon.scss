@@ -8,7 +8,6 @@
   height: 75px;
   z-index: 99999999;
   transform: translateX(50%);
-  // visibility: hidden;
 
   .loading-icon-animation {
     visibility: inherit;
@@ -20,9 +19,6 @@
     box-sizing: border-box;
     animation: animate-loading 0.75s infinite;
     transition: all 1s ease;
-    svg {
-      fill: white;
-    }
   }
 }
 

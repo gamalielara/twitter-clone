@@ -23,6 +23,8 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
     replies_count,
     user,
     image_attached,
+    is_liked,
+    is_retweeted,
   } = tweet;
 
   const { username, display_name, profile_picture, is_verified } = user;
@@ -56,14 +58,17 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
 
             <div>
               <button>
-                <RetweetIcon color={Color.BLUE_PRIMARY} />
+                <RetweetIcon
+                  color={Color.BLUE_PRIMARY}
+                  isRetweeted={is_retweeted}
+                />
               </button>
               <SmallText>{convertIntToString(retweet_count)}</SmallText>
             </div>
 
             <div>
               <button>
-                <LikeIcon color={Color.BLUE_PRIMARY} />
+                <LikeIcon color={Color.BLUE_PRIMARY} filled={!is_liked} />
               </button>
               <SmallText>{convertIntToString(likes_count)}</SmallText>
             </div>

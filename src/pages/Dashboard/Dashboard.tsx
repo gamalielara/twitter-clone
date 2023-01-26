@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import DashboardHeader from "../../components/DashboardHeader";
 import HomeIcon from "../../assets/HomeIcon";
 import { Color } from "../../constants/colors";
@@ -10,16 +10,26 @@ import LoadingTwitterIcon from "../../assets/LoadingTwitterIcon";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllTweets } from "../../redux/tweets/tweetsSlice";
 import { store } from "../../redux/store";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
 const Dashboard: React.FC = () => {
   const { tweets, isLoading } = useSelector(
     (state: AppInterface) => state.tweetsState
   );
+  const [page, setPage] = useState<number>(1);
+  const { isIntersecting, intersectionRef } = useIntersectionObserver();
+
   const dispatch = useDispatch<typeof store.dispatch>();
 
   useEffect(() => {
-    dispatch(fetchAllTweets(1));
-  }, []);
+    dispatch(fetchAllTweets(page));
+  }, [page]);
+
+  useEffect(() => {
+    if (isIntersecting) {
+      setPage((state) => state + 1);
+    }
+  }, [isIntersecting]);
 
   return (
     <>
@@ -31,9 +41,17 @@ const Dashboard: React.FC = () => {
             <HomeIcon color={Color.LIGHT_GRAY} filled />
           </div>
 
-          {tweets.map((tweet, i) => (
-            <Tweet key={tweet._id} tweet={tweet} />
-          ))}
+          {tweets.map((tweet, i) => {
+            if (i === tweets.length - 1) {
+              return (
+                <div key={tweet._id} ref={intersectionRef}>
+                  <Tweet tweet={tweet} />
+                </div>
+              );
+            } else {
+              return <Tweet key={tweet._id} tweet={tweet} />;
+            }
+          })}
         </div>
       </div>
       <FloatingCreateNewTweetButton />
