@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { TweetsStateInterface } from "../../interface/interface";
+import { tweetAdapter } from "../adapter/tweetAdapter";
 
 export const fetchAllTweets = createAsyncThunk(
   "tweets/fetchAllTweets",
@@ -11,11 +11,10 @@ export const fetchAllTweets = createAsyncThunk(
   }
 );
 
-const initialState: TweetsStateInterface = {
+const initialState = tweetAdapter.getInitialState({
   isLoading: false,
-  tweets: [],
   isError: false,
-};
+});
 
 const tweetsSlice = createSlice({
   name: "tweets",
@@ -30,7 +29,7 @@ const tweetsSlice = createSlice({
       })
       .addCase(fetchAllTweets.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.tweets = [...state.tweets, ...action.payload];
+        tweetAdapter.upsertMany(state, action.payload);
       })
       .addCase(fetchAllTweets.rejected, (state) => {
         state.isLoading = false;

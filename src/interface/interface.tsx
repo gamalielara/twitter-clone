@@ -9,11 +9,20 @@ export interface ISVG {
 export interface TweetsStateInterface {
   isLoading: boolean;
   isError: boolean;
-  tweets: TweetInterface[];
+  entities: Record<string, TweetInterface>;
+  ids: string[];
+}
+
+export interface UserStateInterface {
+  isLoading: boolean;
+  isError: boolean;
+  entities: Record<string, UserInterface>;
+  ids: string[];
 }
 
 export interface AppInterface {
   tweetsState: TweetsStateInterface;
+  usersState: UserStateInterface;
 }
 
 export interface TweetInterface {
@@ -25,7 +34,7 @@ export interface TweetInterface {
   is_liked: boolean;
   is_retweeted: boolean;
   image_attached: string[];
-  user: UserInterface;
+  user: string;
 }
 
 export interface UserInterface {
