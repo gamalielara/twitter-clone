@@ -48,6 +48,8 @@ const Dashboard: React.FC = () => {
     }
   }, [isIntersecting]);
 
+  console.log("HELLO");
+
   return (
     <>
       {(isFetchingTweetsLoading || isFetchingUserLoading) && (
