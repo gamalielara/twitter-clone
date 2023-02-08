@@ -29,7 +29,7 @@ const tweetsSlice = createSlice({
       })
       .addCase(fetchAllTweets.fulfilled, (state, action) => {
         state.isLoading = false;
-        tweetAdapter.upsertMany(state, action.payload);
+        tweetAdapter.addMany(state, action.payload);
       })
       .addCase(fetchAllTweets.rejected, (state) => {
         state.isLoading = false;
