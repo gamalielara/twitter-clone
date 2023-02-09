@@ -1,0 +1,17 @@
+$BLUE_PRIMARY: #1da1f2;
+$BLACK: #14171a;
+$DARK_GRAY: #657786;
+$LIGHT_GRAY: #aab8c2;
+$EXTRA_LIGHT_GRAY: #e1e8ed;
+$EXTRA_EXTRA_LIGHT_GRAY: #f5f8fa;
+$WHITE: white;
+$GREEN: rgba(0, 186, 124);
+
+$FILTER_BLACK: invert(0%) sepia(0%) saturate(6439%) hue-rotate(100deg)
+  brightness(91%) contrast(104%);
+$FILTER_BLUE_PRIMARY: invert(46%) sepia(91%) saturate(1948%) hue-rotate(180deg)
+  brightness(105%) contrast(90%);
+$FILTER_GREEN: invert(56%) sepia(33%) saturate(7079%) hue-rotate(129deg)
+  brightness(98%) contrast(101%);
+$FILTER_WHITE: invert(100%) sepia(100%) saturate(0%) hue-rotate(119deg)
+  brightness(104%) contrast(102%);

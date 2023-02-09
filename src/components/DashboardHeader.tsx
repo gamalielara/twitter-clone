@@ -1,6 +1,9 @@
+import { a } from "msw/lib/SetupApi-b2f0e5ac";
+import { useSelector } from "react-redux";
 import DirectMessageIcon from "../assets/DirectMessageIcon";
 import NotificationIcon from "../assets/NotificationIcon";
 import { Color } from "../constants/colors";
+import { AppInterface } from "../interface/interface";
 import {
   Box,
   FlexBox,
@@ -13,6 +16,17 @@ import { Position } from "../styledComponents/positions";
 import { LargeText, RegularText } from "../styledComponents/texts";
 
 const DashboardHeader = () => {
+  const allUsers = useSelector(
+    (state: AppInterface) => state.usersState.entities
+  );
+  const thisUserId = useSelector(
+    (state: AppInterface) => state.usersState.thisUserId
+  );
+
+  const thisUser = allUsers[thisUserId];
+
+  if (!thisUser) return <></>;
+
   return (
     <Header
       position={Position.STICKY}
@@ -36,12 +50,17 @@ const DashboardHeader = () => {
         height="80%"
       >
         <FlexBox>
-          <ProfileImage src="https://upload.wikimedia.org/wikipedia/id/4/47/Taylor_Swift_-_Red_%28Taylor%27s_Version%29.png" />
+          <ProfileImage
+            src={
+              thisUser.profile_picture ||
+              "https://upload.wikimedia.org/wikipedia/id/4/47/Taylor_Swift_-_Red_%28Taylor%27s_Version%29.png"
+            }
+          />
           <FluidBox className="user-detail" margin={[0, 10]} height="0">
             <LargeText bold color={Color.WHITE}>
-              Taylor Swift
+              {thisUser.display_name}
             </LargeText>
-            <RegularText color={Color.WHITE}>@taylorswift13</RegularText>
+            <RegularText color={Color.WHITE}>@{thisUser.username}</RegularText>
           </FluidBox>
         </FlexBox>
 

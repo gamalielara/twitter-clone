@@ -3,6 +3,27 @@ import { Color } from "../constants/colors";
 export interface ISVG {
   color: Color;
   filled?: boolean;
+  isRetweeted?: boolean;
+}
+
+export interface TweetsStateInterface {
+  isLoading: boolean;
+  isError: boolean;
+  entities: Record<string, TweetInterface>;
+  ids: string[];
+}
+
+export interface UserStateInterface {
+  isLoading: boolean;
+  isError: boolean;
+  thisUserId: string;
+  entities: Record<string, UserInterface>;
+  ids: string[];
+}
+
+export interface AppInterface {
+  tweetsState: TweetsStateInterface;
+  usersState: UserStateInterface;
 }
 
 export interface TweetInterface {
@@ -14,7 +35,7 @@ export interface TweetInterface {
   is_liked: boolean;
   is_retweeted: boolean;
   image_attached: string[];
-  user: UserInterface | null;
+  user: string;
 }
 
 export interface UserInterface {

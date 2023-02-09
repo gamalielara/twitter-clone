@@ -5,5 +5,6 @@ export enum Color {
   LIGHT_GRAY = "#AAB8C2",
   EXTRA_LIGHT_GRAY = "#E1E8ED",
   EXTRA_EXTRA_LIGHT_GRAY = "#F5F8FA",
-  WHITE = "white"
+  WHITE = "white",
+  GREEN = "rgba(0, 186, 124)",
 }

@@ -1,0 +1,23 @@
+:root {
+  --unit-width: 600px;
+  --blue-primary: #1da1f2;
+  --light-gray: #aab8c2;
+
+  @media screen and (max-width: 500px) {
+    --unit-width: 100vw;
+  }
+}
+
+svg {
+  stroke-width: 1.25px;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(119deg)
+    brightness(104%) contrast(102%);
+}
+
+main.main-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  overflow: scroll;
+  position: relative;
+}

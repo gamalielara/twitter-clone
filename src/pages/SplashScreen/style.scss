@@ -1,0 +1,36 @@
+@import "../../sass/main.scss";
+
+.splash-screen {
+  width: 100vw;
+  height: 100vh;
+  background-color: $BLUE_PRIMARY;
+  position: relative;
+
+  .logo-container {
+    width: 50%;
+    @include centerByAbsolute;
+
+    svg {
+      transition: all ease;
+      animation: rotateAndScale 1.5s;
+    }
+  }
+}
+
+@keyframes rotateAndScale {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  90% {
+    transform: scale(20) rotate(-45deg);
+  }
+
+  100% {
+    transform: scale(20) rotate(-45deg);
+  }
+}

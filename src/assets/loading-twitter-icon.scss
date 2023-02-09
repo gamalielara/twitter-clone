@@ -1,0 +1,77 @@
+@import "../sass/main.scss";
+
+.loading-wrapper {
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  width: 75px;
+  height: 75px;
+  z-index: 99999999;
+  transform: translateX(50%);
+
+  .loading-icon-animation {
+    visibility: inherit;
+    width: 100%;
+    height: 100%;
+    background-color: $BLUE_PRIMARY;
+    padding: 20%;
+    border-radius: 100%;
+    box-sizing: border-box;
+    animation: animate-loading 0.75s infinite;
+    transition: all 1s ease;
+  }
+}
+
+.show {
+  animation: show 0.5s ease;
+  visibility: visible;
+}
+
+.hide {
+  animation: hide 1.5s ease;
+}
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate3d(0, 1, 0, 5deg);
+  }
+
+  50% {
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+
+  100% {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+}
+
+@keyframes show {
+  0% {
+    visibility: hidden;
+    transform: translateX(50%) scale(0);
+  }
+
+  59% {
+    visibility: visible;
+    transform: translateX(50%) scale(0.5);
+  }
+
+  100% {
+    visibility: visible;
+    transform: translateX(50%) scale(1);
+  }
+}
+
+@keyframes hide {
+  0% {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(50%) scale(1);
+  }
+
+  100% {
+    transform: translateX(50%) scale(0);
+    opacity: 0;
+    visibility: hidden;
+  }
+}

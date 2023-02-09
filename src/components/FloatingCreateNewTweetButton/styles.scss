@@ -1,8 +1,10 @@
-$BLUE_PRIMARY : #1DA1F2;
+$BLUE_PRIMARY: #1da1f2;
 
-.create-tweet-button{
-  width: calc(var(--unit-width) * 0.15);
-  height: calc(var(--unit-width) * 0.15);
+.create-tweet-button {
+  max-width: 75px;
+  max-height: 75px;
+  width: 15vmin;
+  height: 15vmin;
   box-sizing: border-box;
   position: fixed;
   bottom: 2%;
@@ -14,5 +16,10 @@ $BLUE_PRIMARY : #1DA1F2;
 
   @supports (not (aspect-ratio: 1)) {
     padding-bottom: 100%;
+  }
+
+  @media screen and (min-width: 600px) {
+    right: 50%;
+    transform: translateX(75%);
   }
 }
