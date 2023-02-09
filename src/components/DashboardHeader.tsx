@@ -1,8 +1,10 @@
+import { faker } from "@faker-js/faker";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import DirectMessageIcon from "../assets/DirectMessageIcon";
 import NotificationIcon from "../assets/NotificationIcon";
 import { Color } from "../constants/colors";
-import { AppInterface } from "../interface/interface";
+import { AppInterface, UserInterface } from "../interface/interface";
 import {
   Box,
   FlexBox,
@@ -15,17 +17,17 @@ import { Position } from "../styledComponents/positions";
 import { LargeText, RegularText } from "../styledComponents/texts";
 
 const DashboardHeader = () => {
-  const allUsers = useSelector(
-    (state: AppInterface) => state.usersState.entities
-  );
-  const thisUserId = useSelector(
-    (state: AppInterface) => state.usersState.thisUserId
+  const [thisUser, setThisUser] = useState<UserInterface | null>(null);
+  const { ids, entities } = useSelector(
+    (state: AppInterface) => state.usersState
   );
 
-  const thisUser = allUsers[thisUserId];
-  console.log(thisUser, thisUserId);
+  useEffect(() => {
+    const thisUser = entities[ids[faker.datatype.number({ max: ids.length })]];
+    setThisUser(thisUser);
+  }, []);
 
-  if (!thisUser) return <></>;
+  if (!thisUser?._id) return <></>;
 
   return (
     <Header

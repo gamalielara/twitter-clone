@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllTweets } from "../../redux/tweets/tweetsSlice";
 import { store } from "../../redux/store";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
-import { fetchAllUsers, fetchThisUser } from "../../redux/users/usersSlice";
 import "./styles.scss";
 import withSplashScreen from "../../hoc/withSplashScreen";
 
@@ -30,15 +29,11 @@ const Dashboard: React.FC = () => {
 
   const dispatch = useDispatch<typeof store.dispatch>();
 
-  useEffect(() => {
-    dispatch(fetchAllUsers());
-    dispatch(fetchThisUser());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    dispatch(fetchAllTweets(page));
+    if (page > 1) {
+      dispatch(fetchAllTweets(page));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 

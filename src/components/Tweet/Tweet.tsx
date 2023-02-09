@@ -31,6 +31,8 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
     is_retweeted,
   } = tweet;
 
+  console.log(user);
+
   if (userEntities[user]) {
     const { username, display_name, profile_picture, is_verified } =
       userEntities[user];
@@ -92,7 +94,7 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
       </div>
     );
   } else {
-    return <></>;
+    return <>NO USER</>;
   }
 };
 

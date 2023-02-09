@@ -16,7 +16,7 @@ export interface TweetsStateInterface {
 export interface UserStateInterface {
   isLoading: boolean;
   isError: boolean;
-  thisUserId: string;
+  thisUser: UserInterface;
   entities: Record<string, UserInterface>;
   ids: string[];
 }

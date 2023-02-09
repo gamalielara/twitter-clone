@@ -1,9 +1,13 @@
 import "./style.scss";
 
-const SplashScreen: React.FC = () => {
+interface ISplashScreen {
+  animate: boolean;
+}
+
+const SplashScreen: React.FC<ISplashScreen> = ({ animate }) => {
   return (
     <main className="splash-screen">
-      <div className="logo-container">
+      <div className={`logo-container ${animate ? "animate" : ""}`}>
         <svg
           viewBox="0 0 24 24"
           aria-hidden="true"

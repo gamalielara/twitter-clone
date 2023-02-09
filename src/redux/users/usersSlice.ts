@@ -20,7 +20,7 @@ export const fetchThisUser = createAsyncThunk("this_user/fetch", async () => {
 const initialState = userAdapter.getInitialState({
   isLoading: false,
   isError: false,
-  thisUserId: "",
+  thisUser: null,
 });
 
 const usersSlice = createSlice({
@@ -39,7 +39,7 @@ const usersSlice = createSlice({
         userAdapter.addMany(state, action.payload);
       })
       .addCase(fetchThisUser.fulfilled, (state, action) => {
-        state.thisUserId = action.payload._id;
+        state.thisUser = action.payload;
       })
       .addCase(fetchAllUsers.rejected, (state) => {
         state.isLoading = false;
