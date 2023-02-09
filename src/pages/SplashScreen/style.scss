@@ -10,7 +10,7 @@
     width: 50%;
     @include centerByAbsolute;
 
-    svg {
+    &.animate svg {
       transition: all ease;
       animation: rotateAndScale 1.5s;
     }

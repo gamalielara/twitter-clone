@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
 const routes = createBrowserRouter([
   {
     path: "/",
-    element: <SplashScreen />,
+    element: <SplashScreen animate={false} />,
   },
   {
     path: "/home",
