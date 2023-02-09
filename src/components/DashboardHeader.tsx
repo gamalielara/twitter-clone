@@ -1,4 +1,3 @@
-import { a } from "msw/lib/SetupApi-b2f0e5ac";
 import { useSelector } from "react-redux";
 import DirectMessageIcon from "../assets/DirectMessageIcon";
 import NotificationIcon from "../assets/NotificationIcon";
@@ -24,6 +23,7 @@ const DashboardHeader = () => {
   );
 
   const thisUser = allUsers[thisUserId];
+  console.log(thisUser, thisUserId);
 
   if (!thisUser) return <></>;
 

@@ -1,10 +1,6 @@
-import { useEffect } from "react";
 import "./style.scss";
 
 const SplashScreen: React.FC = () => {
-  // useEffect(() => {
-  //   setTimeout(() => (window.location.href = "/home"), 1200);
-  // }, []);
   return (
     <main className="splash-screen">
       <div className="logo-container">
