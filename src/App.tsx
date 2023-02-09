@@ -4,6 +4,8 @@ import "./App.css";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import "./sass/main.scss";
 import { store } from "./redux/store";
+import SplashScreen from "./pages/SplashScreen";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -15,13 +17,22 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const routes = createBrowserRouter([
+  {
+    path: "/",
+    element: <SplashScreen />,
+  },
+  {
+    path: "/home",
+    element: <Dashboard />,
+  },
+]);
+
 function App() {
   return (
     <Provider store={store}>
       <GlobalStyle />
-      <main className="main-container">
-        <Dashboard />
-      </main>
+      <RouterProvider router={routes} />
     </Provider>
   );
 }

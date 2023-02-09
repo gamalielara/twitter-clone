@@ -3,7 +3,6 @@ import DashboardHeader from "../../components/DashboardHeader";
 import HomeIcon from "../../assets/HomeIcon";
 import { Color } from "../../constants/colors";
 import Tweet from "../../components/Tweet/Tweet";
-import "./styles.scss";
 import FloatingCreateNewTweetButton from "../../components/FloatingCreateNewTweetButton/FloatingCreateNewTweetButton";
 import { AppInterface } from "../../interface/interface";
 import LoadingTwitterIcon from "../../assets/LoadingTwitterIcon";
@@ -11,7 +10,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllTweets } from "../../redux/tweets/tweetsSlice";
 import { store } from "../../redux/store";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
-import { fetchAllUsers } from "../../redux/users/usersSlice";
+import { fetchAllUsers, fetchThisUser } from "../../redux/users/usersSlice";
+import "./styles.scss";
+import withSplashScreen from "../../hoc/withSplashScreen";
 
 const Dashboard: React.FC = () => {
   const [page, setPage] = useState<number>(1);
@@ -31,10 +32,14 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchAllUsers());
+    dispatch(fetchThisUser());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     dispatch(fetchAllTweets(page));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   useEffect(() => {
@@ -74,4 +79,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default withSplashScreen(Dashboard);

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { userAdapter } from "../adapter/usersAdapter";
 
-export const fetchAllUsers = createAsyncThunk("users/get", async () => {
+export const fetchAllUsers = createAsyncThunk("users/fetch", async () => {
   const users = await fetch(`${process.env.REACT_APP_BASE_URL}/users`).then(
     (data) => data.json()
   );
@@ -9,9 +9,18 @@ export const fetchAllUsers = createAsyncThunk("users/get", async () => {
   return users;
 });
 
+export const fetchThisUser = createAsyncThunk("this_user/fetch", async () => {
+  const user = await fetch(`${process.env.REACT_APP_BASE_URL}/this_user`).then(
+    (data) => data.json()
+  );
+
+  return user[0];
+});
+
 const initialState = userAdapter.getInitialState({
   isLoading: false,
   isError: false,
+  thisUserId: "",
 });
 
 const usersSlice = createSlice({
@@ -27,7 +36,10 @@ const usersSlice = createSlice({
       })
       .addCase(fetchAllUsers.fulfilled, (state, action) => {
         state.isLoading = false;
-        userAdapter.upsertMany(state, action.payload);
+        userAdapter.addMany(state, action.payload);
+      })
+      .addCase(fetchThisUser.fulfilled, (state, action) => {
+        state.thisUserId = action.payload._id;
       })
       .addCase(fetchAllUsers.rejected, (state) => {
         state.isLoading = false;
