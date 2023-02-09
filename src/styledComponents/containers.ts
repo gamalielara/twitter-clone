@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import { Color } from "../constants/colors";
 import { getMargin, getPadding } from "../helpers/getPaddingAndMargin";
 import { Position } from "./positions";
 
@@ -23,10 +22,6 @@ interface IFlexBox extends IBox {
   justify?: string;
   align?: string;
   gap?: string;
-}
-
-interface ISGVWrapper {
-  color?: Color;
 }
 
 export const MainContainer = styled.main`
